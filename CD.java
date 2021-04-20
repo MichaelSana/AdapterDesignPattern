@@ -25,26 +25,34 @@ public class CD implements DigitalAlbum {
 
     @Override
     public String prevSong() {
-        // TODO Auto-generated method stub
-        return null;
+        if(currentIndex !=0){
+            currentIndex = currentIndex - 1;
+            return ("Skipping back and playing " + songs.get(currentIndex));
+        }
+        return ("Playing: " + songs.get(currentIndex));
     }
 
     @Override
     public String nextSong() {
-        // TODO Auto-generated method stub
-        return null;
+        if(currentIndex!=4){
+            currentIndex = currentIndex+1;
+            return ("Playing: " + songs.get(currentIndex)); 
+        }
+        else{
+            currentIndex = 0;
+            return("Playing: " +songs.get(currentIndex));
+        }
     }
 
     @Override
     public String stop() {
-        // TODO Auto-generated method stub
-        return null;
+        currentIndex =0;
+        return "Stopping cassett and ejecting";
     }
 
     @Override
     public String pause() {
-        // TODO Auto-generated method stub
-        return null;
+        return ("Pausing: " + songs.get(currentIndex));
     }
     
 }
