@@ -16,9 +16,9 @@ public class CD implements DigitalAlbum {
 
     @Override
     public String playSong(int num) {
-        num = currentIndex;
-        currentIndex = currentIndex+1;
-        if(num <= 4) return ("Playing: " + songs.get(currentIndex));
+        //num = currentIndex;
+        currentIndex = num+1;
+        if(num <= 5) return ("Playing: " + songs.get(currentIndex));
         else return "Not a valid song number";
         
     }
@@ -27,20 +27,20 @@ public class CD implements DigitalAlbum {
     public String prevSong() {
         if(currentIndex != 0){
             currentIndex = currentIndex - 1;
-            return ("Skipping back and playing " + songs.get(currentIndex));
+            return ("Skipping back and playing: " + songs.get(currentIndex-1));
         }
         else return ("Playing: " + songs.get(currentIndex));
     }
 
     @Override
     public String nextSong() {
-        if(currentIndex!=4){
+        if(currentIndex!=5){
             currentIndex = currentIndex+1;
-            return ("Playing: " + songs.get(currentIndex)); 
+            return ("Playing: " + currentIndex + ": " + songs.get(currentIndex-1)); 
         }
         else{
             currentIndex = 0;
-            return("Playing: " +songs.get(currentIndex));
+            return("Playing: " + (currentIndex+1) + ": " +songs.get(currentIndex));
         }
     }
 
