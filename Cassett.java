@@ -10,8 +10,11 @@ public class Cassett implements AnalogAlbum {
     @Override
     public String play() {
         
-        if(currentIndex == 4 ) return ("At the end of the cassett you need to rewind");
-        else return ("Playing Song " + (currentIndex+1) + ": " + songs.get(currentIndex));
+        if(currentIndex == 5 ) return ("At the end of the cassett you need to rewind");
+        else {
+        currentIndex++; 
+        return ("Playing Song " + (currentIndex) + ": " + songs.get(currentIndex-1));
+        }
     }
 
     @Override
@@ -19,17 +22,17 @@ public class Cassett implements AnalogAlbum {
         if(currentIndex == 0) return "Fully Re-Wound";
         else{
             currentIndex = currentIndex-1;
-            return ("Rewinding to song " + currentIndex);
+            return ("Rewinding to song " + (currentIndex+1));
         }
     }
 
     @Override
     public String ffwd() {
-        if(currentIndex != 4 && currentIndex!= 3){
-            currentIndex = currentIndex+1;
-            return ("Forwarding to song " + currentIndex);
+        currentIndex++;
+        if(currentIndex != 5 && currentIndex!= 4){
+            return ("Forwarding to song " + (currentIndex+1));
         }
-        else if(currentIndex == 4)
+        else if(currentIndex == 5)
             return "At the end of the cassett you need to rewind";
         else
             return "Forwarded to the end of the cassett";
