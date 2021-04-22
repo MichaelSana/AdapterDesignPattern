@@ -7,32 +7,32 @@ public class AnalogAdapter implements AnalogAlbum{
     
     @Override
     public String play() {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return album.nextSong();
     }
 
     @Override
     public String rewind() {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return album.prevSong();
     }
 
     @Override
     public String ffwd() {
         // TODO Auto-generated method stub
-        return null;
+        return album.nextSong();
     }
 
     @Override
     public String pause() {
         // TODO Auto-generated method stub
-        return null;
+        return album.pause();
     }
 
     @Override
     public String stopEject() {
         // TODO Auto-generated method stub
-        return null;
+        return album.stop();
     }
     
 }

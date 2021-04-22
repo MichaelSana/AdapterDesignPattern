@@ -9,7 +9,7 @@ public class CD implements DigitalAlbum {
 
     @Override
     public String playFromBegginning() {
-        currentIndex = currentIndex +1;
+        
         return ("Playing song 1: " +songs.get(0));
         
     }
@@ -25,11 +25,11 @@ public class CD implements DigitalAlbum {
 
     @Override
     public String prevSong() {
-        if(currentIndex !=0){
+        if(currentIndex != 0){
             currentIndex = currentIndex - 1;
             return ("Skipping back and playing " + songs.get(currentIndex));
         }
-        return ("Playing: " + songs.get(currentIndex));
+        else return ("Playing: " + songs.get(currentIndex));
     }
 
     @Override
